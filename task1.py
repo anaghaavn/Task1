@@ -1,9 +1,11 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
+
 data_path = 'API_SP.POP.TOTL_DS2_en_csv_v2_9949.csv'
-population_df =pd.read_csv(data_path, skiprows=4)  
-year_columns = population_df.columns[4:-1]  
+population_df = pd.read_csv(data_path, skiprows=4)  
+
+year_columns =  population_df.columns[4:-1]  
 global_population_trend = population_df[year_columns].sum()
 global_population_trend_df = pd.DataFrame(global_population_trend).reset_index()
 global_population_trend_df.columns = ['Year', 'Global Population']
